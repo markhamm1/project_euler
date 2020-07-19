@@ -1,32 +1,38 @@
-def sum_of_squares(integer)
-  index = 1
+def sum_of_threes_and_fives(max_number)
   sum = 0
-  integer.times do
-    sum += index * index
+  index = 0
+  max_number.times do
+    if index % 3 == 0
+      sum += index
+    elsif index % 5 == 0
+      sum += index
+    end
     index += 1
   end
-  return sum
+  p sum
 end
 
-def square_of_sums(integer)
-  index = 1
-  sum = 0
-  integer.times do
-    sum += index
-    index += 1
-  end
-  return sum * sum
-end
 
-def print_difference(number1, number2)
-  p number2 - number1
-end
 
-natural_numbers = 100
+# def sum_of_fives(max_number)
+#   sum = 0
+#   index = 0
+#   max_number.times do
+#     if index % 5 == 0
+#       sum += index
+#     end
+#     index += 1
+#   end
+#   sum
+# end
 
-number1 = sum_of_squares(natural_numbers)
-number2 = square_of_sums(natural_numbers)
+# def print_sum(threes, fives)
+#   p threes + fives
+# end
 
-# p number2
+max_number = 1000
+sum_of_threes_and_fives(max_number)
 
-print_difference(number1, number2)
+# threes = sum_of_threes(max_number)
+# fives = sum_of_fives(max_number)
+# print_sum(threes, fives)
