@@ -1,25 +1,27 @@
-# 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
-# What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+# The prime factors of 13195 are 5, 7, 13 and 29.
+# What is the largest prime factor of the number 600851475143 ?
 
-def smallest_without_remainder(max_number)
-  lowest_number = max_number
-  while true
-    i = 1
-    (max_number - 1).times do
-      if lowest_number % i == 0
-        i += 1
-      else
+def largest_prime_factor(number)
+  index1 = 3
+  prime_numbers = []
+  
+  while index1 <= number / 2
+    index2 = 3
+    while index2 <= index1
+      if index1 % index2 == 0
         break
       end
+      index2 += 2
     end
-    if i == max_number
-      break
-    else
-      lowest_number += max_number
+    if index2 == index1 && number % index2 == 0
+      prime_numbers << index2
     end
+    p prime_numbers
+    index1 += 2
   end
-  lowest_number
+  
+  return prime_numbers[-1]
 end
 
-max_number = 20
-p smallest_without_remainder(max_number)
+number = 600851475143
+p largest_prime_factor(number)
